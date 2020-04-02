@@ -3,7 +3,7 @@ MAIN_NAME=sls
 CLIENT_NAME=slc
 INC_PATH = -I./ -I../ -I./slscore -I./include
 LIB_PATH =  -L ./lib
-LIBRARY_FILE = -lpthread -lz -lsrt
+LIBRARY_FILE = -lpthread -lz -lsrt -lssl -lcrypto -ldl
 BIN_PATH = ./bin
 
 DEBUG = -g
