@@ -112,7 +112,10 @@ struct sls_conf_base_t {
  * conf dynamic macro
  */
 #define SLS_CONF_DYNAMIC_DECLARE_BEGIN(c_n)\
-struct sls_conf_##c_n##_t : public sls_conf_base_t {\
+struct sls_conf_##c_n##_t {\
+    char            * name;\
+    sls_conf_base_t * sibling;\
+    sls_conf_base_t * child;\
     static sls_runtime_conf_t runtime_conf;\
     static sls_conf_base_t * create_conf();
 
