@@ -125,7 +125,7 @@ struct sls_conf_##c_n##_t {\
 #define SLS_CONF_DYNAMIC_IMPLEMENT(c_n)\
 sls_conf_base_t * sls_conf_##c_n##_t::create_conf()\
 {\
-    sls_conf_base_t * p = new sls_conf_##c_n##_t ;\
+    sls_conf_base_t * p = (sls_conf_base_t *) new sls_conf_##c_n##_t ;\
     memset(p, 0, sizeof(sls_conf_##c_n##_t));\
     p->child     = NULL;\
     p->sibling   = NULL;\

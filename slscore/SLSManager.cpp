@@ -85,7 +85,7 @@ int CSLSManager::start()
         sls_log(SLS_LOG_INFO, "[%p]CSLSManager::start, no server info, please check the conf file.", this);
         return SLS_ERROR;
     }
-    m_server_count = sls_conf_get_conf_count(conf_server);
+    m_server_count = sls_conf_get_conf_count((sls_conf_base_t *)conf_server);
     sls_conf_server_t * conf = conf_server;
     m_map_data      = new CSLSMapData[m_server_count];
     m_map_publisher = new CSLSMapPublisher[m_server_count];
@@ -100,7 +100,7 @@ int CSLSManager::start()
     for (i = 0; i < m_server_count; i ++) {
     	CSLSListener * p = new CSLSListener();//deleted by groups
     	p->set_role_list(m_list_role);
-        p->set_conf(conf);
+        p->set_conf((sls_conf_base_t *)conf);
         p->set_map_data("", &m_map_data[i]);
         p->set_map_publisher(&m_map_publisher[i]);
         p->set_map_puller(&m_map_puller[i]);
