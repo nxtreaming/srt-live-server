@@ -5,6 +5,7 @@ INC_PATH = -I./ -I../ -I./slscore -I./include
 LIB_PATH =  -L ./lib
 LIBRARY_FILE = -lpthread -lz -lsrt -lssl -lcrypto -ldl
 BIN_PATH = ./bin
+INSTALL_PREFIX = /usr/local/sls
 
 DEBUG = -g
 CFLAGS += $(DEBUG)
@@ -146,6 +147,13 @@ $(OUTPUT_PATH)/SLSSyncClock.o: ./$(CORE_PATH)/SLSSyncClock.cpp
 
 $(OUTPUT_PATH)/TSFileTimeReader.o: ./$(CORE_PATH)/TSFileTimeReader.cpp 
 	g++ -c $(CFLAGS) $< -o $@ $(INC_PATH)
+
+install:
+	mkdir -p  $(INSTALL_PREFIX)
+	install -m 755 $(BIN_PATH)/* $(INSTALL_PREFIX)
+	cp sls.conf $(INSTALL_PREFIX)/
+	ln -s $(INSTALL_PREFIX)/sls /usr/local/bin
+	ln -s $(INSTALL_PREFIX)/slc /usr/local/bin
 
 clean:
 	rm -f $(OUTPUT_PATH)/*.o
