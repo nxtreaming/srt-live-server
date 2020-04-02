@@ -8,7 +8,7 @@ Normally, the latency of transport by SLS is less than 1 second in internet.
 Requirements
 ============
 
-please install the SRT first, refer to SRT(https://github.com/Haivision/srt) for system enviroment.
+please install the SRT first, refer to SRT(https://github.com/Haivision/srt) for system environment.
 SLS can only run on OS based on linux, such as mac, centos or ubuntu etc.
 
 Compile
@@ -47,11 +47,11 @@ SLS only supports the MPEG-TS format streaming.
 
 you can push camera live stream by FFMPEG.Please download ffmpeg sourcecode from https://github.com/FFmpeg/FFmpeg, then compile FFMPEG with --enable-libsrt. 
 
-srt library is installed in folder /usr/local/lib64.
+SRT library is installed in folder /usr/local/lib64.
 if "ERROR: srt >= 1.3.0 not found using pkg-config" occured when compiling FFMPEG, please check the ffbuild/config.log file and follow its instruction to resolve this issue. in most cases it can be resolved by the following command:
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
 
-if "error while loading shared libraries: libsrt.so.1" occured, please add srt library path to file '/etc/ld.so.conf' as the default path, then refresh by comand /sbin/ldconfig with root.
+if "error while loading shared libraries: libsrt.so.1" occured, please add SRT library path to file '/etc/ld.so.conf' as the default path, then refresh by comand /sbin/ldconfig with root.
 
 
 use ffmpeg to push camera stream with SRT(on my mac):
@@ -67,22 +67,22 @@ play the SRT stream with ffplay:
 2.test with OBS
 ---------------
 
-the OBS supports srt protocol to publish stream when version is later than v25.0. you can use the following url:
+the OBS supports SRT protocol to publish stream when version is later than v25.0. you can use the following url:
 srt://[your.sls.ip]:8080?streamid=uplive.sls.com/live/test
 whith custom service.
 
 3.test with srt-live-client
 ---------------------------
 
-there is a test tool in sls, which can be used performance test because of no codec overhead but main network overhead. the slc can play a srt stream to a ts file, or push a ts file to a srt stream.
+there is a test tool in sls, which can be used performance test because of no codec overhead but main network overhead. the slc can play a SRT stream to a ts file, or push a ts file to a SRT stream.
 
-push ts file as srt url:
+push ts file as SRT url:
 
 cd bin
 
 ./slc -r srt://[your.sls.ip]:8080?streamid=uplive.sls.com/live/test -i [the full file name of exist ts file]
 
-play srt url
+play SRT url
 
 ./slc -r srt://[your.sls.ip]:8080?streamid=uplive.sls.com/live/test -o [the full file name of ts file to save]
 
@@ -123,7 +123,7 @@ v1.4
 
 v1.4.1
 ------
-1. add publisher feather to slc(srt-live-client) tool, which can push ts file with srt according dts.
+1. add publisher feather to slc(srt-live-client) tool, which can push ts file with SRT according dts.
 2. modify the http bug when host is not available.
 
 v1.4.2
@@ -137,7 +137,7 @@ v1.4.3
 
 v1.4.4
 ------
-1. OBS streaming compatible, OBS support the srt protocol which is later than v25.0.
+1. OBS streaming compatible, OBS support the SRT protocol which is later than v25.0.
 (https://obsproject.com/forum/threads/obs-studio-25-0-release-candidate.116067/)
 
 
