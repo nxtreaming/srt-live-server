@@ -87,7 +87,7 @@ using namespace std;
 
 int64_t sls_gettime_ms(void);//rturn millisecond
 int64_t sls_gettime(void);//rturn microsecond
-void    sls_gettime_fmt(char *dst, int64_t cur_time_sec, char *fmt);
+void    sls_gettime_fmt(char *dst, int64_t cur_time_sec, const char *fmt);
 void    sls_gettime_default_string(char *cur_time);
 char  * sls_strupper(char * str);
 void    sls_remove_marks(char *s);

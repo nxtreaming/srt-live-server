@@ -37,7 +37,7 @@ CSLSLog::CSLSLog()
 {
 	m_level = SLS_LOG_INFO;
 	m_log_file   = NULL;
-    sprintf(log_filename, "");
+    log_filename[0] = '\0';
 }
 CSLSLog::~CSLSLog()
 {
@@ -85,7 +85,7 @@ void CSLSLog::print_log(int level, const char *fmt, va_list vl)
     vsnprintf (buf , 4095 , fmt , vl);
     //sprintf(buf_info, "%s %s: %s\n" , cur_time, LOG_LEVEL_NAME[level], buf);
     sprintf(buf_info, "%s:%03d %s %s: %s\n" , cur_time, (int)cur_time_msec, APP_NAME, LOG_LEVEL_NAME[level], buf);
-    printf(buf_info);
+    printf("%s", buf_info);
 
     if (m_log_file) {
         fwrite(buf_info, strlen(buf_info), 1, m_log_file);
@@ -102,7 +102,7 @@ void CSLSLog::set_log_level(char * level)
     for (int i = 0; i < n; i ++) {
         if (strcmp(level, LOG_LEVEL_NAME[i]) == 0) {
             m_pInstance->m_level = i;
-            printf("set log level='%s'.\n" , level, LOG_LEVEL_NAME[i]);
+            printf("set log level='%s' name='%s'.\n" , level, LOG_LEVEL_NAME[i]);
             return ;
         }
     }

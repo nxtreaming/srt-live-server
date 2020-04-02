@@ -244,7 +244,7 @@ void CSLSRole::set_conf(sls_conf_base_t * conf)
     m_conf = conf;
 }
 
-void CSLSRole::set_map_data(char *map_key, CSLSMapData *map_data)
+void CSLSRole::set_map_data(const char *map_key, CSLSMapData *map_data)
 {
 	if (NULL != map_key) {
         strcpy(m_map_data_key, map_key);
