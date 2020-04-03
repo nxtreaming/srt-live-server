@@ -152,8 +152,8 @@ install:
 	mkdir -p  $(INSTALL_PREFIX)
 	install -m 755 $(BIN_PATH)/* $(INSTALL_PREFIX)
 	cp sls.conf $(INSTALL_PREFIX)/
-	ln -s $(INSTALL_PREFIX)/sls /usr/local/bin
-	ln -s $(INSTALL_PREFIX)/slc /usr/local/bin
+	ln -fs $(INSTALL_PREFIX)/sls /usr/local/bin
+	ln -fs $(INSTALL_PREFIX)/slc /usr/local/bin
 
 clean:
 	rm -f $(OUTPUT_PATH)/*.o
