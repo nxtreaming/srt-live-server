@@ -383,7 +383,7 @@ void CSLSRole::check_hls_file()
          sprintf(ts_item, "#EXTINF:%0.3f,\n%s\n", d, m_record_hls_ts_filename);
          //update vod file
          if (0 == m_record_hls_vod_fd) {
-             sprintf(m_record_hls_vod_filename, "%s/vod-%lld.m3u8.extinfo", m_record_hls_path, cur_tm_ms/1000);
+             sprintf(m_record_hls_vod_filename, "%s/vod-%ld.m3u8.extinfo", m_record_hls_path, cur_tm_ms/1000);
              struct stat stat_file;
              if (0 == stat(m_record_hls_vod_filename, &stat_file)) {
                  m_record_hls_vod_fd = ::open(m_record_hls_vod_filename, O_WRONLY|O_TRUNC, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IXOTH);
@@ -397,7 +397,7 @@ void CSLSRole::check_hls_file()
          }
     }
     char full_ts_name[URL_MAX_LEN] = {0};
-    sprintf(m_record_hls_ts_filename, "%lld.ts", cur_tm_ms/1000);
+    sprintf(m_record_hls_ts_filename, "%ld.ts", cur_tm_ms/1000);
     sprintf(full_ts_name, "%s/%s", m_record_hls_path, m_record_hls_ts_filename);
     m_record_hls_ts_fd = ::open(full_ts_name, O_WRONLY|O_CREAT, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IXOTH);
     sls_log(SLS_LOG_INFO, "[%p]CSLSRole::check_hls_file, create ts file='%s', fd=%d.", this, full_ts_name, m_record_hls_ts_fd);
