@@ -84,8 +84,11 @@ cd bin
 
 play SRT url
 
-./slc -r srt://[your.sls.ip]:8080?streamid=uplive.sls.com/live/test -o [the full file name of ts file to save]
+./slc -r srt://[your.sls.ip]:8080?streamid=live.sls.com/live/test -o [the full file name of ts file to save]
 
+4.use sls with docker
+---------------------------
+please refer to :https://hub.docker.com/r/ravenium/srt-live-server
 
 Note:
 =====
@@ -155,4 +158,11 @@ v1.4.7
 
 v1.4.8
 ------
-1. for compatible srt v1.4.1, add the set latency method before setup method 
+1. compatible for srt v1.4.1, add the set latency method before setup method 
+
+
+v1.4.9
+------
+1. compatible for raspberrypi.
+
+
